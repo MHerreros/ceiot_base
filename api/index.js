@@ -79,7 +79,7 @@ app.post('/device', function (req, res) {
 });
 
 app.get('/web/device', function (req, res) {
-  var devices = db.public.many('SELECT * FROM devices').map(function (device) {
+  const devices = db.public.many('SELECT * FROM devices').map(function (device) {
     console.log(device);
     return (
       '<tr><td><a href=/web/device/' +
@@ -108,7 +108,7 @@ app.get('/web/device', function (req, res) {
 });
 
 app.get('/web/device/:id', function (req, res) {
-  var template =
+  const template =
     '<html>' +
     '<head><title>Sensor {{name}}</title></head>' +
     '<body>' +
@@ -118,17 +118,17 @@ app.get('/web/device/:id', function (req, res) {
     '</body>' +
     '</html>';
 
-  var device = db.public.many("SELECT * FROM devices WHERE device_id = '" + req.params.id + "'");
+  const device = db.public.many("SELECT * FROM devices WHERE device_id = '" + req.params.id + "'");
   console.log(device);
   res.send(render(template, { id: device[0].device_id, key: device[0].key, name: device[0].name }));
 });
 
 app.get('/term/device/:id', function (req, res) {
-  var red = '\33[31m';
-  var green = '\33[32m';
-  var blue = '\33[33m';
-  var reset = '\33[0m';
-  var template =
+  const red = '\x1b[31m';
+  const green = '\x1b[32m';
+  const blue = '\x1b[33m';
+  const reset = '\x1b[0m';
+  const template =
     'Device name ' +
     red +
     '   {{name}}' +
@@ -144,7 +144,7 @@ app.get('/term/device/:id', function (req, res) {
     '  {{ key }}' +
     reset +
     '\n';
-  var device = db.public.many("SELECT * FROM devices WHERE device_id = '" + req.params.id + "'");
+  const device = db.public.many("SELECT * FROM devices WHERE device_id = '" + req.params.id + "'");
   console.log(device);
   res.send(render(template, { id: device[0].device_id, key: device[0].key, name: device[0].name }));
 });
@@ -161,10 +161,13 @@ startDatabase().then(async () => {
   const addAdminEndpoint = require('./admin.js');
   addAdminEndpoint(app, render);
 
-  await insertMeasurement({ id: '00', t: '18', h: '78' });
-  await insertMeasurement({ id: '00', t: '19', h: '77' });
-  await insertMeasurement({ id: '00', t: '17', h: '77' });
-  await insertMeasurement({ id: '01', t: '17', h: '77' });
+  await Promise.all([
+    insertMeasurement({ id: '00', t: '18', h: '78' }),
+    insertMeasurement({ id: '00', t: '19', h: '77' }),
+    insertMeasurement({ id: '00', t: '17', h: '77' }),
+    insertMeasurement({ id: '01', t: '17', h: '77' }),
+  ]);
+
   console.log('mongo measurement database Up');
 
   db.public.none('CREATE TABLE devices (device_id VARCHAR, name VARCHAR, key VARCHAR)');
