@@ -6,12 +6,11 @@ const userRouter = Router();
 
 userRouter.get('', async (req, res) => {
   try {
-    logger.info(`GET Users`);
-    const data = await getUsers();
-    return res.status(200).json(data.rows);
+    logger.info(`GET All Users`);
+    return res.status(200).json(await getUsers());
   } catch (error) {
     logger.error(error);
-    res.status(500).send('Internal Server Error');
+    return res.status(500).send('Internal Server Error');
   }
 });
 
