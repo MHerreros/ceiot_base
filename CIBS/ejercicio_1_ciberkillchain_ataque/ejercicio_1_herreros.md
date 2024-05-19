@@ -17,15 +17,15 @@
    5. Relevo tecnologías utilizadas para la confección de la API. - [Technique T1595](https://attack.mitre.org/techniques/T1595)
    6. Relevo formatos y estilos estándar de las comunicaciones de los distintos proveedores de servicios utilizados en el sistema objetivo.
 
-2) **Weaponization:**
+2. **Weaponization:**
 
    1. **Decido** realizar ataques de phishing a las personas vinculadas al proyecto.
-   1. **Decido** preparar mails copiando los estilos utilizados en las comunicaciones de los proveedores de servicios del sistema objetivo.
-   1. **Decido** preparar un listado priorizado de mails a los cuales enviar los mensajes falsos. Se priorizan personas con menor seniority.
-   1. **Decido** preparar una `landing page` idéntica a la de uno de los proveedores con el objetivo de que la persona atacada ingrese sus credenciales.
+      1. **Decido** preparar mails copiando los estilos utilizados en las comunicaciones de los proveedores de servicios del sistema objetivo.
+      2. **Decido** preparar un listado priorizado de mails a los cuales enviar los mensajes falsos. Se priorizan personas con menor seniority.
+      3. **Decido** preparar una `landing page` idéntica a la de uno de los proveedores con el objetivo de que la persona atacada ingrese sus credenciales.
    1. **Puedo**, dado que conozco las IPs y la topología de la API, realizar un ataque de denegación de servicio.
    1. **Puedo**, dado que conozco las tecnologías utilizadas en la API, explotar vulnerabilidades de los sistemas utilizados.
 
-3) **Delivery:**
+3. **Delivery:**
 
    1. Envío, siguiendo el listado priorizado de personas, mails simulando ser de algún peoveedor de servicios del sistema.
