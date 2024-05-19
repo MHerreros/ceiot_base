@@ -31,15 +31,17 @@
    1. Envío mails simulando ser un peoveedor de servicios del sistema siguiendo el listado priorizado de personas.
 
 4. **Installation:**
-5. Cuando uno de los empleados ingrese las credenciales de acceso al sistema en la `landing`, guardo esos datos con el objetivo de utilizarlos cuantas veces sea necesario.
 
-6. **Command & Control:**
-7. **Decido** acceder a información relevante sobre la empresa y sus cientes.
-8. **Decido** ingresar al sistema e invesigarlo por dentro.
-9. **Decido** implementar un canal que me permita transferir datos desde el sistema atacado hacia mí.
-10. **Puedo** alterar las credenciales de acceso al sistema.
-11. **Puedo** alterar la configuración del sistema para provocar la caída del mismo.
+   1. Cuando uno de los empleados ingrese las credenciales de acceso al sistema en la `landing`, guardo esos datos con el objetivo de utilizarlos cuantas veces sea necesario.
 
-12. **Actions and objectives:**
-13. Extraigo toda la información posible sobre los clientes de la compañía atacada.
-14. Extraigo toda la información posible de la compañía y sus sistemas para continuar profundizando el ataque.
+5. **Command & Control:**
+
+   1. **Decido** acceder a información relevante sobre la empresa y sus cientes.
+      1. **Decido** ingresar al sistema e invesigarlo por dentro.
+      2. **Decido** implementar un canal que me permita transferir datos desde el sistema atacado hacia mí.
+   2. **Puedo** alterar las credenciales de acceso al sistema.
+   3. **Puedo** alterar la configuración del sistema para provocar la caída del mismo.
+
+6. **Actions and objectives:**
+   1. Extraigo toda la información posible sobre los clientes de la compañía atacada.
+   2. Extraigo toda la información posible de la compañía y sus sistemas para continuar profundizando el ataque.
