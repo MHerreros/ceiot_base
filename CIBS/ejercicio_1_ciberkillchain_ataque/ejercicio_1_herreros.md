@@ -45,11 +45,13 @@
 
    1. **Decido** acceder a información relevante sobre la empresa y sus cientes.
    2. **Decido** implementar un canal que me permita transferir datos desde el sistema atacado hacia mí.
-      1. **Decido** establecerme como un `Adversary in the Middle` entre el sistema infectado y el resto de los sistemas que interactúan con el mismo con el objetivo de obtener la data transferida entre los mismos (desde datos recolectados por sensores hasta credenciales). - [Technique T1557](https://attack.mitre.org/techniques/T1557)
+      1. **Decido** establecer comunicaciones con los sistemas relacionados siguiendo los protocolos que ya son utilizados con el objetivo de `ocultar` el tráfico / comunicación maliciosa. - [Technique T1071](https://attack.mitre.org/techniques/T1071)
+      2. **Decido** establecerme como un `Adversary in the Middle` entre el sistema infectado y el resto de los sistemas que interactúan con el mismo con el objetivo de obtener la data transferida entre los mismos (desde datos recolectados por sensores hasta credenciales). - [Technique T1557](https://attack.mitre.org/techniques/T1557)
+      3. **Decido** encriptar la data recolectada para hacer que sea mas difícil a la víctima reconocer la exfiltración de la información. - [Technique T1560](https://attack.mitre.org/techniques/T1560)
    4. **Puedo** alterar las credenciales de acceso al sistema.
    5. **Puedo** alterar la configuración del sistema para provocar la caída del mismo.
    6. **Puedo** ingresar al sistema e invesigarlo por dentro.
 
 7. **Actions and objectives:**
-   1. Extraigo toda la información posible sobre los clientes de la compañía atacada.
+   1. Extraigo toda la información posible sobre los clientes de la compañía atacada. Extraigo la información realizando peticiones `http` hacia una `url` dedicada. - [Technique T1048](https://attack.mitre.org/techniques/T1048)
    2. Extraigo toda la información posible de la compañía y sus sistemas para continuar profundizando el ataque.
