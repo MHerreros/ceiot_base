@@ -28,20 +28,28 @@
 
 3. **Delivery:**
 
-   1. Envío mails simulando ser un peoveedor de servicios del sistema siguiendo el listado priorizado de personas.
+   1. Envío mails simulando ser un peoveedor de servicios del sistema siguiendo el listado priorizado de personas. - [Technique T1566](https://attack.mitre.org/techniques/T1566)
 
-4. **Installation:**
+4. **Exploitation:**
+   
+   1. Utilizo las credenciales ingresadas por el usuario en el falso `login` para ingresar en el sistema real.
+   2. Dentro del sistema, aprovecho/fuerzo herramientas de gestión del mismo para poder ejecutar scripts propios que permitan la recopilación de datos. - [Technique T1651](https://attack.mitre.org/techniques/T1651)
+   3. Utilizo APIs o SDKs nativas de los sistemas utilizados para poder ejecutar scripts que me permitan recopilar datos. [Technique T1059](https://attack.mitre.org/techniques/T1059/009)
 
-   1. Cuando uno de los empleados ingrese las credenciales de acceso al sistema en la `landing`, guardo esos datos con el objetivo de utilizarlos cuantas veces sea necesario.
+5. **Installation:**
 
-5. **Command & Control:**
+   1. **Decido** guardar las credenciales ingresadas por el empleado con el objetivo de utilizarlas cuantas veces sea necesario. - [Technique T1098](https://attack.mitre.org/techniques/T1098)
+   2. **Puedo** crear credenciales nuevas para lograr un acceso a largo plazo al sistema. - [Technique T1136](https://attack.mitre.org/techniques/T1136)
+
+6. **Command & Control:**
 
    1. **Decido** acceder a información relevante sobre la empresa y sus cientes.
-      1. **Decido** ingresar al sistema e invesigarlo por dentro.
-      2. **Decido** implementar un canal que me permita transferir datos desde el sistema atacado hacia mí.
-   2. **Puedo** alterar las credenciales de acceso al sistema.
-   3. **Puedo** alterar la configuración del sistema para provocar la caída del mismo.
+   2. **Decido** implementar un canal que me permita transferir datos desde el sistema atacado hacia mí.
+      1. **Decido** establecerme como un `Adversary in the Middle` entre el sistema infectado y el resto de los sistemas que interactúan con el mismo con el objetivo de obtener la data transferida entre los mismos (desde datos recolectados por sensores hasta credenciales). - [Technique T1557](https://attack.mitre.org/techniques/T1557)
+   4. **Puedo** alterar las credenciales de acceso al sistema.
+   5. **Puedo** alterar la configuración del sistema para provocar la caída del mismo.
+   6. **Puedo** ingresar al sistema e invesigarlo por dentro.
 
-6. **Actions and objectives:**
+7. **Actions and objectives:**
    1. Extraigo toda la información posible sobre los clientes de la compañía atacada.
    2. Extraigo toda la información posible de la compañía y sus sistemas para continuar profundizando el ataque.
