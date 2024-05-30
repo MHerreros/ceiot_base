@@ -10,7 +10,7 @@
 
 1. **Reconnaissance:**
 
-   1. Identifico personas vinculadas al proyecto y conseguir / inferir sus mails - [Technique T1589](https://attack.mitre.org/techniques/T1589/) - [Technique T1594](https://attack.mitre.org/techniques/T1594/)
+   1. Identifico personas vinculadas al proyecto y consigo / infiero sus mails - [Technique T1589](https://attack.mitre.org/techniques/T1589/) - [Technique T1594](https://attack.mitre.org/techniques/T1594/)
    2. Identifico IP de la API - [Technique T1590](https://attack.mitre.org/techniques/T1590/)
    3. Relevo topología del sistema. - [Technique T1590](https://attack.mitre.org/techniques/T1590/)
    4. Relevo mecanismos de seguridad presentes. - [Technique 1590](https://attack.mitre.org/techniques/T1590/)
@@ -23,18 +23,19 @@
       1. **Decido** preparar mails copiando los estilos utilizados en las comunicaciones de los proveedores de servicios del sistema objetivo.
       2. **Decido** preparar un listado priorizado de mails a los cuales enviar los mensajes falsos. Se priorizan personas con menor seniority.
       3. **Decido** preparar una `landing page` idéntica a la de uno de los proveedores con el objetivo de que la persona atacada ingrese sus credenciales.
-   1. **Puedo**, dado que conozco las IPs y la topología de la API, realizar un ataque de denegación de servicio.
-   1. **Puedo**, dado que conozco las tecnologías utilizadas en la API, explotar vulnerabilidades de los sistemas utilizados.
+      4. **Decido** preparar scripts específicos para los distintos subsistemas reconocidos en el paso 1 que me permitan acceder a datos de bases de datos y/o interceptarlos.
+   2. **Puedo**, dado que conozco las IPs y la topología de la API, realizar un ataque de denegación de servicio.
+   3. **Puedo**, dado que conozco las tecnologías utilizadas en la API, explotar vulnerabilidades de los sistemas utilizados.
 
 3. **Delivery:**
 
    1. Envío mails simulando ser un peoveedor de servicios del sistema siguiendo el listado priorizado de personas. - [Technique T1566](https://attack.mitre.org/techniques/T1566)
 
 4. **Exploitation:**
-   
-   1. Utilizo las credenciales ingresadas por el usuario en el falso `login` para ingresar en el sistema real.
-   2. Dentro del sistema, aprovecho/fuerzo herramientas de gestión del mismo para poder ejecutar scripts propios que permitan la recopilación de datos. - [Technique T1651](https://attack.mitre.org/techniques/T1651)
-   3. Utilizo APIs o SDKs nativas de los sistemas utilizados para poder ejecutar scripts que me permitan recopilar datos. [Technique T1059](https://attack.mitre.org/techniques/T1059/009)
+
+   1. **Decido** utilizar las credenciales ingresadas por el usuario en el falso `login` para ingresar en el sistema real.
+   2. **Decido**, una vez dentro del sistema, acceder a buckets, ingresar al administrador de base de datos, acceder a las maquinas virtuales presentes y ejecutar los scripts preparados para leer e interceptar los datos. - [Technique T1651](https://attack.mitre.org/techniques/T1651)
+   3. **Puedo** ingresar al sistema e invesigarlo por dentro.
 
 5. **Installation:**
 
@@ -43,15 +44,13 @@
 
 6. **Command & Control:**
 
-   1. **Decido** acceder a información relevante sobre la empresa y sus cientes.
-   2. **Decido** implementar un canal que me permita transferir datos desde el sistema atacado hacia mí.
-      1. **Decido** establecer comunicaciones con los sistemas relacionados siguiendo los protocolos que ya son utilizados con el objetivo de `ocultar` el tráfico / comunicación maliciosa. - [Technique T1071](https://attack.mitre.org/techniques/T1071)
-      2. **Decido** establecerme como un `Adversary in the Middle` entre el sistema infectado y el resto de los sistemas que interactúan con el mismo con el objetivo de obtener la data transferida entre los mismos (desde datos recolectados por sensores hasta credenciales). - [Technique T1557](https://attack.mitre.org/techniques/T1557)
+   1. **Decido** implementar un canal que me permita transferir datos desde el sistema atacado hacia mí.
+      1. **Decido** establecer comunicaciones con las máquinas virtuales presentes siguiendo los protocolos que ya son utilizados con el objetivo de `ocultar` el tráfico / comunicación maliciosa. - [Technique T1071](https://attack.mitre.org/techniques/T1071)
+      2. **Decido** establecerme como un `Adversary in the Middle` entre las máquinas virtuales infectadas y el resto de los sistemas que interactúan con ellas con el objetivo de obtener la data transferida entre las mismas (desde datos recolectados por sensores hasta credenciales). - [Technique T1557](https://attack.mitre.org/techniques/T1557)
       3. **Decido** encriptar la data recolectada para hacer que sea mas difícil a la víctima reconocer la exfiltración de la información. - [Technique T1560](https://attack.mitre.org/techniques/T1560)
-   4. **Puedo** alterar las credenciales de acceso al sistema.
-   5. **Puedo** alterar la configuración del sistema para provocar la caída del mismo.
-   6. **Puedo** ingresar al sistema e invesigarlo por dentro.
+   2. **Puedo** alterar las credenciales de acceso al sistema.
+   3. **Puedo** alterar la configuración del sistema para provocar la caída del mismo.
 
 7. **Actions and objectives:**
-   1. Extraigo toda la información posible sobre los clientes de la compañía atacada. Extraigo la información realizando peticiones `http` hacia una `url` dedicada. - [Technique T1048](https://attack.mitre.org/techniques/T1048)
-   2. Extraigo toda la información posible de la compañía y sus sistemas para continuar profundizando el ataque.
+   1. **Decido** extraer toda la información posible sobre los clientes, sus consumos, ubicaciones, etc. La información la extraigo mediante métodos de exfiltración utilizando un protocolo ya utilizado dentro del sistema (DNS, http). - [Technique T1048](https://attack.mitre.org/techniques/T1048)
+   2. **Decido** extraer toda la información posible de la compañía y sus sistemas para continuar profundizando el ataque.
