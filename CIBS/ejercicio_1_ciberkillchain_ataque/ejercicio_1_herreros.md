@@ -22,8 +22,9 @@
    1. **Decido** realizar ataques de phishing a las personas vinculadas al proyecto.
       1. **Decido** preparar mails copiando los estilos utilizados en las comunicaciones de los proveedores de servicios del sistema objetivo.
       2. **Decido** preparar un listado priorizado de mails a los cuales enviar los mensajes falsos. Se priorizan personas con menor seniority.
-      3. **Decido** preparar una `landing page` idéntica a la de uno de los proveedores con el objetivo de que la persona atacada ingrese sus credenciales.
-      4. **Decido** preparar scripts específicos para los distintos subsistemas reconocidos en el paso 1 que me permitan acceder a datos de bases de datos y/o interceptarlos.
+      3. **Decido** preparar una `landing page` idéntica a la de uno de los proveedores con el objetivo de que la persona atacada ingrese sus credenciales. Preparo un dominio cuya `url` sea similar al del servicio que deseo imitar. - [Technique T1583](https://attack.mitre.org/techniques/T1583)
+      4. **Decido** preparar cuentas de mail falsas imitando los mails enviados por el proveedor real. - [Technique T1585](https://attack.mitre.org/techniques/T1585)
+      5. **Decido** preparar scripts específicos para los distintos subsistemas reconocidos en el paso 1 que me permitan acceder a datos de bases de datos y/o interceptarlos. - [Technique T1587](https://attack.mitre.org/techniques/T1587)
    2. **Puedo**, dado que conozco las IPs y la topología de la API, realizar un ataque de denegación de servicio.
    3. **Puedo**, dado que conozco las tecnologías utilizadas en la API, explotar vulnerabilidades de los sistemas utilizados.
 
