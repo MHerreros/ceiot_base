@@ -34,9 +34,8 @@
 
 4. **Exploitation:**
 
-   1. **Decido** utilizar las credenciales ingresadas por el usuario en el falso `login` para ingresar en el sistema real.
-   2. **Decido**, una vez dentro del sistema, acceder a buckets, ingresar al administrador de base de datos, acceder a las maquinas virtuales presentes y ejecutar los scripts preparados para leer e interceptar los datos. - [Technique T1651](https://attack.mitre.org/techniques/T1651)
-   3. **Puedo** ingresar al sistema e invesigarlo por dentro.
+   1. El usuario ingresa a la página falsa e introduce sus credenciales. Esas credenciales me llegan a mí.
+   2. **Decido** utilizar las credenciales ingresadas por el usuario en el falso `login` para ingresar en el sistema real.
 
 5. **Installation:**
 
@@ -45,12 +44,13 @@
 
 6. **Command & Control:**
 
+   2. **Decido**, una vez dentro del sistema, acceder a buckets, ingresar al administrador de base de datos, acceder a las maquinas virtuales presentes y ejecutar los scripts preparados para leer e interceptar los datos. - [Technique T1651](https://attack.mitre.org/techniques/T1651)
    1. **Decido** implementar un canal que me permita transferir datos desde el sistema atacado hacia mí.
       1. **Decido** establecer comunicaciones con las máquinas virtuales presentes siguiendo los protocolos que ya son utilizados con el objetivo de `ocultar` el tráfico / comunicación maliciosa. - [Technique T1071](https://attack.mitre.org/techniques/T1071)
       2. **Decido** establecerme como un `Adversary in the Middle` entre las máquinas virtuales infectadas y el resto de los sistemas que interactúan con ellas con el objetivo de obtener la data transferida entre las mismas (desde datos recolectados por sensores hasta credenciales). - [Technique T1557](https://attack.mitre.org/techniques/T1557)
       3. **Decido** encriptar la data recolectada para hacer que sea mas difícil a la víctima reconocer la exfiltración de la información. - [Technique T1560](https://attack.mitre.org/techniques/T1560)
-   2. **Puedo** alterar las credenciales de acceso al sistema.
-   3. **Puedo** alterar la configuración del sistema para provocar la caída del mismo.
+   1. **Puedo** alterar las credenciales de acceso al sistema.
+   1. **Puedo** alterar la configuración del sistema para provocar la caída del mismo.
 
 7. **Actions and objectives:**
    1. **Decido** extraer toda la información posible sobre los clientes, sus consumos, ubicaciones, etc. La información la extraigo mediante métodos de exfiltración utilizando un protocolo ya utilizado dentro del sistema (DNS, http). - [Technique T1048](https://attack.mitre.org/techniques/T1048)
