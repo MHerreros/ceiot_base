@@ -33,7 +33,7 @@ Para cada etapa elegir una sola defensa, la más importante, considerar recursos
 
 6. **Weaponization:**
 
-   1. Dado que esta es una actividad que realiza el atacante sin interactuar con mi sistema, no hay mucho que se pueda realizar para detener esta etapa.
+   1. Si bien es difícil protegerse contra un ataque que aún es desconocido, **decido** tomar medidas preventivas generales. Dentro de esas medidas **decido** realizar campañas de concientización entre los empleados, **decido** realizar charlas conjuntas con los distintos proveedores de servicios para que nos cuenten qué medidas de seguridad poseen y cómo podemos implementarlas para hacer un uso seguro de sus sistemas.
 
 7. **Reconnaissance:**
 
